@@ -8,7 +8,6 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.51.0
       '@typescript-eslint/parser': ^5.51.0
       eslint: ^8.33.0
-      eslint-plugin-promise: ^6.1.1
       prettier: ^2.8.4
       typescript: 5.0.0-dev.20230209
     devDependencies:
@@ -16,7 +15,6 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.51.0_ur64f3nvh5j66lm3i6p6clv3li
       '@typescript-eslint/parser': 5.51.0_wr5nooahcsrg7kutpeu7mcsxo4
       eslint: 8.33.0
-      eslint-plugin-promise: 6.1.1_eslint@8.33.0
       prettier: 2.8.4
       typescript: 5.0.0-dev.20230209
 
@@ -646,15 +644,6 @@ packages:
   /escape-string-regexp/4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
-    dev: true
-
-  /eslint-plugin-promise/6.1.1_eslint@8.33.0:
-    resolution: {integrity: sha512-tjqWDwVZQo7UIPMeDReOpUgHCmCiH+ePnVT+5zVapL0uuHnegBUs2smM13CzOs2Xb5+MHMRFTs9v24yjba4Oig==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
-    dependencies:
-      eslint: 8.33.0
     dev: true
 
   /eslint-scope/5.1.1:
