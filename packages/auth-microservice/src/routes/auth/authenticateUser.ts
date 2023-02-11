@@ -1,6 +1,6 @@
 import type { RouteOptions } from "..";
-import parseUserCredentials from "../../utils/parseUserCredentials.js";
-import UserAuthValidator from "../../validators/UserAuthValidator.js";
+import parseUserCredentials from "../../utils/parseUserCredentials";
+import UserAuthValidator from "../../validators/UserAuthValidator";
 
 const validator = UserAuthValidator();
 

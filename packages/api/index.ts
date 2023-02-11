@@ -1,5 +1,5 @@
 import fastify from "fastify";
-import { loadRoutes } from "./src/routes/index.js";
+import { loadRoutes } from "./src/routes/index";
 
 const server = fastify();
 
