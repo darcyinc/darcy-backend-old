@@ -1,0 +1,120 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Users
+
+model User {
+  id String @id @default(cuid())
+
+  // Name of the user
+  name String @default("Darcy User")
+
+  // Handle of the user (without @)
+  handle String  @unique @db.VarChar(16)
+  // Avatar of the user
+  avatar String?
+
+  // Bio of the user up to 250 characters
+  bio String @default("") @db.VarChar(250)
+
+  // Followers of the user
+  followers         User[] @relation("Followers")
+  followersRelation User[] @relation("Followers")
+
+  // Following of the user
+  following         User[] @relation("Following")
+  followingRelation User[] @relation("Following")
+
+  // Posts of the user
+  posts Post[]
+
+  // Private data of the user
+  privateData UserPrivateData[]
+
+  // When the user was created
+  createdAt DateTime @default(now())
+
+  // Relations
+  Likes       Post[]        @relation("Likes")
+  Reposts     Post[]        @relation("Reposts")
+  PostComment PostComment[]
+}
+
+model UserPrivateData {
+  id String @id @default(cuid())
+
+  // The user the data belongs to
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  // The email of the user
+  email String @unique
+
+  // The hashed password of the user
+  hashedPassword String
+
+  // User authentication token)
+  token String @unique
+
+  // When the user was created
+  createdAt DateTime @default(now())
+}
+
+// Posts
+
+model Post {
+  id String @id @default(cuid())
+
+  // The user who created the post
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  // The content of the post
+  content String @db.VarChar(280)
+
+  // Array of users who liked the post
+  likes User[] @relation("Likes")
+
+  // Array of users who shared "reposted" the post
+  reposts User[] @relation("Reposts")
+
+  // Comments of the post
+
+  // When the post was created
+  createdAt DateTime @default(now())
+
+  // Relations
+  Comments PostComment[]
+}
+
+model PostComment {
+  id String @id @default(cuid())
+
+  // The user who created the comment
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  // The post the comment belongs to
+  post   Post   @relation(fields: [postId], references: [id])
+  postId String
+
+  // The content of the comment
+  content String @db.VarChar(280)
+
+  // Comments of the comment
+  comments         PostComment[] @relation("Comments")
+  commentsRelation PostComment[] @relation("Comments")
+
+  // When the comment was created
+  createdAt DateTime @default(now())
+}

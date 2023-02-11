@@ -1,0 +1,22 @@
+{
+  "name": "@darcy/api",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Darcy is an open source social network where you can share your thoughts and opinions with other people.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start:dev": "pnpm run --parallel start:dev"
+  },
+  "author": "Davi Patricio <davipatricio2006@gmail.com>",
+  "license": "Apache 2.0 License",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "eslint": "^8.33.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^2.8.4",
+    "typescript": "5.0.0-dev.20230209"
+  }
+}
