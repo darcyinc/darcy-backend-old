@@ -17,10 +17,7 @@ build:
 
 	@echo "\n\nBuild complete. Run 'make start-prod' to start the API and microservices."
 
-start-dev:
-	pnpm run start:dev
-
-start-prod:
+start:
 	@echo "Warning: This will start all services. Start the service individually if you want to restart a single service (recommended for production).\n"
 
 	@# Run pnpm i and pnpm start in each package
@@ -32,5 +29,24 @@ start-prod:
 		fi; \
 		pnpm install; \
 		pnpm start; \
+		cd ..; \
+	done
+
+start-dev:
+	pnpm run start:dev
+
+start-prod:
+	@echo "Warning: This will start all services in separate screen sessions.\n"
+
+	@# Run pnpm i and pnpm start in each package in separate screen sessions
+	@cd dist/ && \
+	for dir in */ ; do \
+		cd $$dir; \
+		if [ ! -f pnpm-lock.yaml ]; then \
+			echo {} > pnpm-lock.yaml; \
+		fi; \
+		pnpm install; \
+		#echo "$${dir%/}"; \
+		screen -dmS "$${dir%/}" sh -c "pnpm start"; \
 		cd ..; \
 	done
