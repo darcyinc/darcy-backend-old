@@ -15,7 +15,7 @@ build:
 	@# Generate the prisma client
 	@cd dist/database && pnpm i && pnpm prisma generate
 
-	@echo "\n\nBuild complete. Run 'make start-prov' to start the API and microservices."
+	@echo "\n\nBuild complete. Run 'make start-prod' to start the API and microservices."
 
 start-dev:
 	pnpm run start:dev
