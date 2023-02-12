@@ -1,10 +1,9 @@
 import { RouteOptions } from "..";
 import { CreateUserDto } from "./services/createUser";
 
-import parseUserCredentials from "../../utils/parseUserCredentials";
+import HttpStatus from "http-status-codes";
 import UserAuthValidator from "../../validators/UserAuthValidator";
 import services from "./services";
-import HttpStatus from "http-status-codes";
 
 const validator = UserAuthValidator();
 
@@ -12,10 +11,6 @@ export default function createUserRoute({ app, prisma }: RouteOptions) {
   app.route({
     method: "POST",
     url: "/auth/users",
-
-    preHandler: (req, res, done) => {
-      parseUserCredentials(req, res, done);
-    },
 
     handler: async (req, res) => {
       const { email, password } = (req.body ?? {}) as CreateUserDto;
