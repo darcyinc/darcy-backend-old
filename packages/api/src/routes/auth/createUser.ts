@@ -1,4 +1,3 @@
-import axios from "axios";
 import { RouteOptions } from "..";
 import verifyRequestData from "../../../utils/verifyRequestData";
 
@@ -12,16 +11,24 @@ export default function createUserRoute({ app }: RouteOptions) {
     },
 
     handler: async (req, res) => {
-      axios
-        .post(
+      try {
+        const data = await fetch(
           `http://localhost:${process.env.AUTH_MICROSERVICE_PORT}/auth/users`,
-          req.body,
           {
-            headers: req.headers,
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: req.headers.authorization!,
+            },
+            body: JSON.stringify(req.body),
           }
-        )
-        .then((response) => res.send(response.data))
-        .catch((error) => res.send(error));
+        );
+        const json = (await data.json()) as Record<string, unknown>;
+
+        res.send(json);
+      } catch (error) {
+        res.send(error);
+      }
     },
   });
 }
