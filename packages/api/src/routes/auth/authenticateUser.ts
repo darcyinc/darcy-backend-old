@@ -13,7 +13,7 @@ export default function authenticateUserRoute({ app }: RouteOptions) {
     handler: async (req, res) => {
       try {
         const data = await fetch(
-          `http://localhost:${process.env.AUTH_MICROSERVICE_PORT}/auth/users/logi`,
+          `http://localhost:${process.env.AUTH_MICROSERVICE_PORT}/auth/users/login`,
           {
             method: "POST",
             headers: {
