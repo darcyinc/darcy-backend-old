@@ -22,7 +22,7 @@ export default async function createUser(
   });
 
   if (existingUser) {
-    throw new Error("User already exists");
+    throw new Error("A user with that email already exists.");
   }
 
   const baseUserhandle = email.split("@")[0].slice(0, 9);

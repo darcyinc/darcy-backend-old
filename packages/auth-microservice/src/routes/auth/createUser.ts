@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { RouteOptions } from "..";
 import { CreateUserDto } from "./services/createUser";
 
