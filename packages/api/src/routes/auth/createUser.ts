@@ -1,10 +1,15 @@
 import axios from "axios";
 import { RouteOptions } from "..";
+import verifyRequestData from "../../../utils/verifyRequestData";
 
 export default function createUserRoute({ app }: RouteOptions) {
   app.route({
     method: "POST",
     url: "/auth/users",
+
+    preHandler: (req, res, next) => {
+      verifyRequestData(req, res, next);
+    },
 
     handler: async (req, res) => {
       axios

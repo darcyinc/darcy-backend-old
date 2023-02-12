@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 
-export default function parseUserCredentials(
+export default function verifyRequestData(
   req: FastifyRequest,
   res: FastifyReply,
   done: () => void
