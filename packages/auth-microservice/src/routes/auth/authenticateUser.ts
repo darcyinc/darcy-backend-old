@@ -18,8 +18,7 @@ export default function authenticateUserRoute({ app }: RouteOptions) {
       const result = await validator.safeParseAsync({ email, password });
 
       if (!result.success) {
-        res.status(400);
-        return res.send({
+        return res.status(400).send({
           errors: result.error.issues,
         });
       }

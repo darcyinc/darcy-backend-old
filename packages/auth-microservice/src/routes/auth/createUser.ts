@@ -1,10 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { RouteOptions } from "..";
+import { CreateUserDto } from "./services/createUser";
+
 import parseUserCredentials from "../../utils/parseUserCredentials";
 import UserAuthValidator from "../../validators/UserAuthValidator";
+import services from "./services";
+import HttpStatus from "http-status-codes";
 
 const validator = UserAuthValidator();
 
-export default function createUserRoute({ app }: RouteOptions) {
+export default function createUserRoute({ app, prisma }: RouteOptions) {
   app.route({
     method: "POST",
     url: "/auth/users",
@@ -14,20 +19,33 @@ export default function createUserRoute({ app }: RouteOptions) {
     },
 
     handler: async (req, res) => {
-      const { email, password } = (req.body ?? {}) as Record<string, string>;
+      const { email, password } = (req.body ?? {}) as CreateUserDto;
       const result = await validator.safeParseAsync({ email, password });
 
       if (!result.success) {
-        res.status(400);
-        return res.send({
+        return res.status(400).send({
           errors: result.error.issues,
         });
       }
 
-      res.status(200);
-      res.send({
-        message: "success",
-      });
+      return services
+        .createUser(prisma, result.data)
+        .then((token) => {
+          return res.status(HttpStatus.OK).send({
+            token,
+            errors: [],
+          });
+        })
+        .catch((err) => {
+          if (err.message === "User already exists")
+            return res.status(HttpStatus.CONFLICT).send({
+              errors: [err.message],
+            });
+
+          return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send({
+            errors: [err.message],
+          });
+        });
     },
   });
 }

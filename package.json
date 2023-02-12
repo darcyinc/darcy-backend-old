@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start:dev": "pnpm run --parallel start:dev"
+    "start:dev": "pnpm run --parallel start:dev",
+    "prisma:migrate": "pnpm prisma migrate dev --schema=./packages/database/prisma/schema.prisma"
   },
   "author": "Davi Patricio <davipatricio2006@gmail.com>",
   "license": "Apache 2.0 License",
