@@ -13,7 +13,7 @@ export default function verifyRequestData(
     return;
   }
 
-  if (req.headers["content-type"] !== "application/json") {
+  if (!(req.headers["content-type"]?.toLowerCase() ?? '').startsWith("application/json")) {
     res.code(400);
     res.send({
       errors: ["Invalid content type"],
