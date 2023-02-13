@@ -21,7 +21,10 @@ export default function createUserRoute({ app, prisma }: RouteOptions) {
         handle,
       });
 
-      if (!user) return res.status(HttpStatus.NOT_FOUND).send({ errors: ["User not found"] });
+      if (!user)
+        return res
+          .status(HttpStatus.NOT_FOUND)
+          .send({ errors: [{ message: "User not found" }] });
 
       return res.send(user);
     },

@@ -26,17 +26,16 @@ export default function authenticateUserRoute({ app, prisma }: RouteOptions) {
         .then((token) => {
           return res.status(HttpStatus.OK).send({
             token,
-            errors: [],
           });
         })
         .catch((err) => {
           if (err.message === "Incorrect email or password.")
             return res.status(HttpStatus.UNAUTHORIZED).send({
-              errors: [err.message],
+              errors: [{ message: err.message }],
             });
 
           return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send({
-            errors: [err.message],
+            errors: [{ message: err.message }],
           });
         });
     },

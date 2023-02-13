@@ -13,7 +13,7 @@ export default async function verifyRequestData(
   if (!authorization) {
     res.code(HttpCodes.UNAUTHORIZED);
     res.send({
-      errors: ["Missing authorization header"],
+      errors: [{ message: "Missing authorization header" }],
     });
     return;
   }
@@ -22,7 +22,7 @@ export default async function verifyRequestData(
   if (!result.success) {
     res.code(HttpCodes.UNAUTHORIZED);
     res.send({
-      errors: ["Invalid token."],
+      errors: [{ message: "Invalid token." }],
     });
     return;
   }

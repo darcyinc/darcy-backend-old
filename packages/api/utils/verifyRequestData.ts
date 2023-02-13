@@ -8,15 +8,19 @@ export default function verifyRequestData(
   if (!req.body) {
     res.code(400);
     res.send({
-      errors: ["No body provided"],
+      errors: [{ message: "No body provided" }],
     });
     return;
   }
 
-  if (!(req.headers["content-type"]?.toLowerCase() ?? '').startsWith("application/json")) {
+  if (
+    !(req.headers["content-type"]?.toLowerCase() ?? "").startsWith(
+      "application/json"
+    )
+  ) {
     res.code(400);
     res.send({
-      errors: ["Invalid content type"],
+      errors: [{ message: "Invalid content type" }],
     });
     return;
   }

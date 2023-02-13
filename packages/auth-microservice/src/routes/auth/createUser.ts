@@ -27,17 +27,16 @@ export default function createUserRoute({ app, prisma }: RouteOptions) {
         .then((token) => {
           return res.status(HttpStatus.OK).send({
             token,
-            errors: [],
           });
         })
         .catch((err) => {
           if (err.message === "User already exists")
             return res.status(HttpStatus.CONFLICT).send({
-              errors: [err.message],
+              errors: [{ message: err.message }],
             });
 
           return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send({
-            errors: [err.message],
+            errors: [{ message: err.message }],
           });
         });
     },
