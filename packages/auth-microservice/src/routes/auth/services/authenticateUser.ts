@@ -15,7 +15,7 @@ export default async function authenticateUser(
   const isSamePassword = existingUser
     ? await bcrypt.compare(password, existingUser.hashedPassword)
     : false;
-  if (!existingUser || isSamePassword) {
+  if (!existingUser || !isSamePassword) {
     throw new Error("Incorrect email or password.");
   }
 
