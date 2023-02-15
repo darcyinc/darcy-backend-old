@@ -11,7 +11,7 @@ async function main() {
     origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
   });
-  await server.listen({ port: 4000 });
+  await server.listen({ host: "0.0.0.0", port: 4000 });
 
   console.log("Server listening on port 4000");
 }
