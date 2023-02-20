@@ -16,7 +16,6 @@ export default class Middleware {
           message: "Content-Type header is required",
           statusCode: 400,
         });
-        done();
         return;
       }
 
@@ -27,7 +26,6 @@ export default class Middleware {
           message: "Content-Type header must be application/json",
           statusCode: 400,
         });
-        done();
         return;
       }
 
