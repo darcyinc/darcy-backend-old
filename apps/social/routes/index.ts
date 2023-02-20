@@ -7,13 +7,7 @@ export default class Route {
 
   private addRoutes() {
     this.fastify.post("/", async (_, res) => {
-      const d = await this.fastify.prisma.user.findFirst({
-        where: {
-          handle: "davipatri15722",
-        },
-      });
-
-      return res.send(d);
+      return res.send({ message: "Hello world!" });
     });
   }
 }

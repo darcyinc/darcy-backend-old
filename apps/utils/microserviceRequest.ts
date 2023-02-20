@@ -5,6 +5,7 @@ const Microservices = {
   auth: `http://localhost:${process.env.AUTH_MICROSERVICE_PORT}`,
   feed: `http://localhost:${process.env.FEED_MICROSERVICE_PORT}`,
   post: `http://localhost:${process.env.POST_MICROSERVICE_PORT}`,
+  user: `http://localhost:${process.env.USER_MICROSERVICE_PORT}`,
   social: `http://localhost:${process.env.SOCIAL_MICROSERVICE_PORT}`,
 };
 
@@ -24,12 +25,14 @@ export default async function microserviceRequest({
   method,
 }: Request) {
   try {
+    const { authorization } = req.headers;
+
     const axiosReq = await axios(`${Microservices[microservice]}${path}`, {
       method: method ?? req.method,
       data: req.body,
       headers: {
         "Content-Type": "application/json",
-        Authorization: req.headers.authorization!,
+        Authorization: authorization?.replace("Bearer ", "") ?? null,
       },
     });
     res.status(axiosReq.status).send(axiosReq.data);

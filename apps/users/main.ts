@@ -17,24 +17,22 @@ app.prisma = new PrismaClient();
 
 global.app = app;
 
+const port = Number(process.env.USER_MICROSERVICE_PORT);
+
 async function bootstrap() {
   // Add listener to add routes
   app.addHook("onRoute", (routeOptions) => {
     console.log(
-      `[REST] Route added: [${routeOptions.method}] ${routeOptions.url}`
+      `[User Microservice] Route added: [${routeOptions.method}] ${routeOptions.url}`
     );
   });
 
   const manager = new FastifyManager(app);
-  await manager.loadConsumers(__dirname + "/middlewares");
   await manager.loadConsumers(__dirname + "/routes");
 
-  await app.listen({
-    host: "0.0.0.0",
-    port: 4000,
-  });
+  await app.listen({ port });
 
-  console.log("[REST] Server started on port 4000");
+  console.log("[User Microservice] Server started on port", port);
 }
 
 bootstrap();
