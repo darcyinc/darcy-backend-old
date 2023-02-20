@@ -4,7 +4,7 @@
   "description": "Darcy is an open source social network where you can share your thoughts and opinions with other people.",
   "scripts": {
     "build": "tsc",
-    "start:dev": "./start-dev.sh"
+    "start:dev": "make start-dev"
   },
   "imports": {
     "#*": "./dist/*.js"
