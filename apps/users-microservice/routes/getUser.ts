@@ -1,4 +1,4 @@
-import { getUserByHandle } from "#users/services/users";
+import { getUserByHandle } from "#users-microservice/services/users";
 import { AppInstance } from "../main";
 
 export default class Route {

@@ -1,5 +1,5 @@
-import createUser, { CreateUserDto } from "#auth/services/createUser";
-import credentials from "#auth/validators/credentials";
+import createUser, { CreateUserDto } from "#auth-microservice/services/createUser";
+import credentials from "#auth-microservice/validators/credentials";
 import HttpStatusCode from "http-status-codes";
 import { AppInstance } from "../main";
 

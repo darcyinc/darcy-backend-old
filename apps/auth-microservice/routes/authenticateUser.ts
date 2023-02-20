@@ -1,6 +1,6 @@
-import authenticateUser from "#auth/services/authenticateUser";
-import { CreateUserDto } from "#auth/services/createUser";
-import credentials from "#auth/validators/credentials";
+import authenticateUser from "#auth-microservice/services/authenticateUser";
+import { CreateUserDto } from "#auth-microservice/services/createUser";
+import credentials from "#auth-microservice/validators/credentials";
 import HttpStatusCode from "http-status-codes";
 import { AppInstance } from "../main";
 
