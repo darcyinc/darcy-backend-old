@@ -29,6 +29,7 @@ async function bootstrap() {
 
   const manager = new FastifyManager(app);
   await manager.loadConsumers(__dirname + "/routes");
+  await manager.loadConsumers(__dirname + "/middlewares");
 
   await app.listen({ port });
 

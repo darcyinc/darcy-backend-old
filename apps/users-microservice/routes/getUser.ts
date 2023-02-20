@@ -1,4 +1,5 @@
 import { getUserByHandle } from "#users-microservice/services/users";
+import { User } from "@prisma/client";
 import { AppInstance } from "../main";
 
 export default class Route {
@@ -10,7 +11,7 @@ export default class Route {
     this.fastify.get("/users/:handle", async (req, res) => {
       const { handle } = req.params as { handle: string };
 
-      let user;
+      let user: User | null;
       if (handle === "@me") {
         user = await this.fastify.prisma.user.findFirst({
           where: {
