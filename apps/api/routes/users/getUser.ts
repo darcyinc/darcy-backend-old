@@ -1,4 +1,5 @@
 import { AppInstance } from "#api/main";
+import validateToken from "#api/shared/validateToken";
 import microserviceRequest from "#utils/microserviceRequest";
 
 export default class Route {
@@ -8,6 +9,9 @@ export default class Route {
 
   private addRoutes() {
     this.fastify.get("/users/:handle", async (req, res) => {
+      const isValidToken = await validateToken(req, res);
+      if (!isValidToken) return;
+
       const { handle } = req.params as { handle: string };
 
       try {
