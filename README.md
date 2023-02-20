@@ -1,6 +1,6 @@
 # Darcy Social Network 🚀
 
-Darcy is a social network that connects people from all over the world 🌎. Share your thoughts, photos, and interests with your friends and family 💬. 
+Darcy is a social network that connects people from all over the world 🌎. Share your thoughts, photos, and interests with your friends and family 💬.
 
 ## Getting Started 💻
 
@@ -32,23 +32,43 @@ cd darcy-backend
 pnpm install
 ```
 
+4. Rename the `.env.example` file to `.env` and fill in the environment variables.
+
+5. Generate the Prisma client:
+
+```
+pnpm prisma generate
+```
+
+6. (Optional) Migrate your database:
+
+```
+pnpm prisma migrate dev
+```
+
+or
+
+```
+pnpm prisma migrate deploy
+```
+
 ### Building the Project 🏗️
 
 Use the following command to build the project:
 
 ```
-make build
+pnpm build
 ```
 
 ### Running the Project 🏃‍♂️
 
-Use the following command to start the project in development mode:
+Use the following command to start the project in development mode (all microservices):
 
 ```
 make start-dev
 ```
 
-Use the following command to start the project in production mode:
+Use the following command to start the project in production mode (a screen will be created for each microservice, Linux only):
 
 ```
 make start-prod
