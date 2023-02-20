@@ -74,6 +74,9 @@ Use the following command to start the project in production mode (a screen will
 make start-prod
 ```
 
+⚠️ **Note**: only the `api` application is exposed to the internet. By default, the `api` application runs on port `4000`.
+⚠️ Do not expose the other applications to the internet (they don't have some validations), so try to keep everything local.
+
 ## Built With 🛠️
 
 - [Node.js](https://github.com/nodejs/node)
