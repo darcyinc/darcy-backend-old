@@ -11,6 +11,7 @@ These instructions will help you get a copy of the project up and running on you
 - [Node.js](https://nodejs.org/en/)
 - [pnpm](https://github.com/pnpm/pnpm)
 - [make](https://www.gnu.org/software/make/)
+- [Go](https://golang.org/)
 
 ### Installing 💾
 
@@ -83,6 +84,8 @@ make start-prod
 - [pnpm](https://github.com/pnpm/pnpm)
 - [fastify](https://github.com/fastify/fastify)
 - [Prisma](https://github.com/prisma/prisma)
+- [TypeScript](https://github.com/microsoft/TypeScript)
+- [Go](https://github.com/golang/go)
 
 ## Contributing 🤝
 
