@@ -9,10 +9,12 @@ export default class Route {
 
   private addRoutes() {
     this.fastify.get("/users/:handle", async (req, res) => {
-      const isValidToken = await validateToken(req, res);
-      if (!isValidToken) return;
-
       const { handle } = req.params as { handle: string };
+
+      if (handle === "@me") {
+        const isValidToken = await validateToken(req, res);
+        if (!isValidToken) return;
+      }
 
       try {
         await microserviceRequest({
