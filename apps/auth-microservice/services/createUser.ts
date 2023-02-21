@@ -40,6 +40,7 @@ export default async function createUser({ email, password }: CreateUserDto) {
     data: {
       name: handle,
       handle,
+      avatar: `http://localhost:2006/assets/random-avatar-1.png`,
       privateData: {
         create: {
           email,
