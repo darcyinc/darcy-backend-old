@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 	"sync"
 	"time"
 
@@ -75,6 +76,9 @@ func main() {
 	// Register the handlers with the server.
 	http.HandleFunc("/upload", uploadHandler)
 	http.HandleFunc("/assets/", serveHandler)
+
+	// Create the folder /assets if it doesn't exist.
+	os.Mkdir("assets", 0755)
 
 	// Start the server.
 	srv := &http.Server{
