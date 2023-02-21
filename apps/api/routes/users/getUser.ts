@@ -23,7 +23,7 @@ export default class Route {
         });
       } catch {
         res.status(500).send({
-          error: "Internal server error",
+          errors: [{ message: "Internal server error" }],
           message: "Internal server error",
           status: 500,
         });

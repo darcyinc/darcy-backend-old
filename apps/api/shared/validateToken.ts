@@ -8,7 +8,7 @@ export default async function isValidToken(
   const isValid = await token.safeParseAsync(req.headers.authorization);
   if (!req.headers.authorization || !isValid.success) {
     res.status(401).send({
-      error: "Unauthorized",
+      errors: [{ message: "Unauthorized" }],
       message: "Invalid token",
       statusCode: 401,
     });
@@ -23,7 +23,7 @@ export default async function isValidToken(
 
   if (!data) {
     res.status(401).send({
-      error: "Unauthorized",
+      errors: [{ message: "Unauthorized" }],
       message: "Invalid token",
       statusCode: 401,
     });

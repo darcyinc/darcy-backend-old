@@ -12,7 +12,7 @@ export default class Middleware {
       // check if request has a content-type header
       if (!req.headers["content-type"]) {
         res.status(400).send({
-          error: "Bad Request",
+          errors: [{ message: "Bad Request" }],
           message: "Content-Type header is required",
           statusCode: 400,
         });
@@ -22,7 +22,7 @@ export default class Middleware {
       // check if request has a content-type header and it is not application/json
       if (req.headers["content-type"] !== "application/json") {
         res.status(400).send({
-          error: "Bad Request",
+          errors: [{ message: "Bad Request" }],
           message: "Content-Type header must be application/json",
           statusCode: 400,
         });
