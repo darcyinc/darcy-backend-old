@@ -15,6 +15,10 @@ These instructions will help you get a copy of the project up and running on you
 
 ### Installing 💾
 
+⚠️ Darcy is just a hobby project and should not be used in production.
+
+⚠️ If you want to use it in production, you should integrate it with a object storage service.
+
 1. Clone the repository:
 
 ```
@@ -76,7 +80,8 @@ make start-prod
 ```
 
 ⚠️ **Note**: only the `api` application is exposed to the internet. By default, the `api` application runs on port `4000`.
-⚠️ Do not expose the other applications to the internet (they don't have some validations), so try to keep everything local.
+
+⚠️ Do not expose the microservices to the internet (they don't have some validations), so try to keep everything local.
 
 ## Built With 🛠️
 
