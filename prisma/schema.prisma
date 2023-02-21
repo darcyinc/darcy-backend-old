@@ -19,9 +19,9 @@ model User {
   name String @default("Darcy User")
 
   // Handle of the user (without @)
-  handle String  @unique @db.VarChar(16)
+  handle String @unique @db.VarChar(16)
   // Avatar of the user
-  avatar String?
+  avatar String @default("http://localhost:2006/assets/default-avatar.png")
 
   // Bio of the user up to 250 characters
   bio String @default("") @db.VarChar(250)
