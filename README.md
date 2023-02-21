@@ -79,7 +79,7 @@ Use the following command to start the project in production mode (a screen will
 make start-prod
 ```
 
-⚠️ **Note**: only the `api` application is exposed to the internet. By default, the `api` application runs on port `4000`.
+⚠️ **Note**: only the `api` and the `cdn` applications are exposed to the internet. By default, the `api` application runs on port `4000` and the `cdn` application runs on port `2006`.
 
 ⚠️ Do not expose the microservices to the internet (they don't have some validations), so try to keep everything local.
 
