@@ -26,6 +26,9 @@ func ServeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// set cache to 7 days
+	w.Header().Set("Cache-Control", "max-age=604800")
+
 	fmt.Println("Serving file:", path)
 
 	http.ServeFile(w, r, path)
