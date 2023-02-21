@@ -2,6 +2,7 @@ import { FastifyManager } from "#utils/FastifyManager";
 import { PrismaClient } from "@prisma/client";
 import { config } from "dotenv";
 import fastify from "fastify";
+import cors from "@fastify/cors";
 
 config({ path: __dirname + "/../../.env" });
 
@@ -18,6 +19,11 @@ app.prisma = new PrismaClient();
 global.app = app;
 
 async function bootstrap() {
+  app.register(cors, {
+    origin: true,
+    methods: ["GET", "PUT", "POST", "DELETE", "PATCH", "OPTIONS"],
+  });
+
   // Add listener to add routes
   app.addHook("onRoute", (routeOptions) => {
     console.log(
