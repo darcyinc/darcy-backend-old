@@ -1,10 +1,10 @@
 start-dev:
-	cd ./dist && \
+	@cd ./dist && \
 	for dir in */; do \
 	  if [ -f "$${dir}main.js" ]; then \
 	    node "$${dir}main.js" & \
 	  fi \
 	done && \
-	wait && \
-	cd cdn && \
-	go run main.go
+	cd ../apps/cdn && \
+	go run main.go && \
+	wait

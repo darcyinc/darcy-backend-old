@@ -7,7 +7,7 @@ if "%1"=="start-dev" (
             start "" node "%%D\main.js"
         )
     )
-    cd cdn
+    cd ../apps/cdn
     go run main.go
 ) else (
     echo Usage: %0 [start-dev]
