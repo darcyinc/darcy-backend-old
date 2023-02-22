@@ -27,6 +27,14 @@ async function bootstrap() {
     );
   });
 
+  app.setErrorHandler((error, _, reply) => {
+    reply.status(500).send({
+      errors: [{ message: "Internal server error" }],
+      message: error.message,
+      statusCode: 500,
+    });
+  });
+
   const manager = new FastifyManager(app);
   await manager.loadConsumers(__dirname + "/routes");
 
