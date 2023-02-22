@@ -26,6 +26,16 @@ export default class Route {
         user = await getUserByHandle(handle);
       }
 
+      if (!user) {
+        return res
+          .status(404)
+          .send({
+            message: "User not found",
+            errors: [{ message: "User not found" }],
+            statusCode: 404,
+          });
+      }
+
       return res.send({ user });
     });
   }
