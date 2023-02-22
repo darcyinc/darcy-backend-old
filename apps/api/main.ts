@@ -13,7 +13,10 @@ declare global {
   var app: AppInstance;
 }
 
-const app = fastify();
+const app = fastify({
+  // 50 mb
+  bodyLimit: 52428800,
+});
 app.prisma = new PrismaClient();
 
 global.app = app;
@@ -31,10 +34,10 @@ async function bootstrap() {
     );
   });
 
-  app.setErrorHandler((error, _, reply) => {
+  app.setErrorHandler((_err, _req, reply) => {
     reply.status(500).send({
       errors: [{ message: "Internal server error" }],
-      message: error.message,
+      message: "Internal server error",
       statusCode: 500,
     });
   });
