@@ -1,0 +1,42 @@
+{
+	"name": "@darcyinc/scripts",
+	"version": "0.1.0",
+	"description": "A set of scripts that we use for our workflows",
+	"private": true,
+	"scripts": {
+		"build": "tsup",
+		"lint": "prettier --check . && eslint src --ext .mjs,.js,.ts --format=pretty",
+		"format": "prettier --write . && eslint src --ext .mjs,.js,.ts --fix --format=pretty",
+		"fmt": "pnpm format"
+	},
+	"contributors": [
+		"Davi Patricio <davipatricio2006@gmail.com",
+		"Nicolas Ribeiro <business@niskii.dev>"
+	],
+	"license": "ISC",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js",
+		"types": "./dist/index.d.ts"
+	},
+	"dependencies": {
+		"commander": "^10.0.0",
+		"fs-extra": "^11.1.0"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^11.0.1",
+		"@types/node": "^18.14.0",
+		"eslint": "^8.35.0",
+		"eslint-config-neon": "^0.1.40",
+		"eslint-formatter-pretty": "^4.1.0",
+		"prettier": "^2.8.4",
+		"tsup": "^6.6.3",
+		"typescript": "^4.9.5"
+	},
+	"engines": {
+		"node": ">=16.9.0"
+	}
+}

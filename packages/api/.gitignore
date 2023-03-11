@@ -6,6 +6,7 @@ node_modules/
 
 # Dist
 dist/
+typings/
 
 # Miscellaneous
 .idea/

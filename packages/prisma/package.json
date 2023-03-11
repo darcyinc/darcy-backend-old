@@ -1,0 +1,44 @@
+{
+	"name": "@darcyinc/prisma",
+	"version": "0.1.0",
+	"description": "Module to store & manage Prisma schemas.",
+	"private": true,
+	"scripts": {
+		"build": "tsup",
+		"generate": "prisma generate --schema=./providers/schema.prisma",
+		"migrate": "prisma migrate dev --schema=./providers/schema.prisma",
+		"lint": "prettier --check . && eslint src --ext .mjs,.js,.ts --format=pretty",
+		"format": "prettier --write . && eslint src --ext .mjs,.js,.ts --fix --format=pretty",
+		"fmt": "pnpm format"
+	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"typings": "./dist/index.d.ts",
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js",
+		"types": "./dist/index.d.ts"
+	},
+	"contributors": [
+		"Davi Patricio <davipatricio2006@gmail.com",
+		"Nicolas Ribeiro <business@niskii.dev>"
+	],
+	"license": "ISC",
+	"dependencies": {
+		"@prisma/client": "^4.10.1"
+	},
+	"devDependencies": {
+		"@types/node": "16.18.11",
+		"eslint": "^8.31.0",
+		"eslint-config-neon": "^0.1.40",
+		"eslint-formatter-pretty": "^4.1.0",
+		"prettier": "^2.8.2",
+		"tsup": "^6.5.0",
+		"typescript": "^4.9.4",
+		"prisma": "^4.10.1",
+		"vitest": "^0.27.1"
+	},
+	"engines": {
+		"node": ">=16.9.0"
+	}
+}
