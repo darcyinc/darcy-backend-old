@@ -11,7 +11,7 @@
 		"start": "node ."
 	},
 	"contributors": [
-		"Davi Patricio <davipatricio2006@gmail.com",
+		"Davi Patricio <davipatricio2006@gmail.com>",
 		"Nicolas Ribeiro <business@niskii.dev>"
 	],
 	"license": "ISC",

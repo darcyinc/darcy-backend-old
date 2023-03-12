@@ -1,7 +1,7 @@
 {
 	"name": "@darcyinc/prisma",
 	"version": "0.1.0",
-	"description": "Module to store & manage Prisma schemas.",
+	"description": "Package to store & manage Prisma schemas.",
 	"private": true,
 	"scripts": {
 		"build": "tsup",
@@ -20,7 +20,7 @@
 		"types": "./dist/index.d.ts"
 	},
 	"contributors": [
-		"Davi Patricio <davipatricio2006@gmail.com",
+		"Davi Patricio <davipatricio2006@gmail.com>",
 		"Nicolas Ribeiro <business@niskii.dev>"
 	],
 	"license": "ISC",
@@ -35,8 +35,7 @@
 		"prettier": "^2.8.2",
 		"tsup": "^6.5.0",
 		"typescript": "^4.9.4",
-		"prisma": "^4.10.1",
-		"vitest": "^0.27.1"
+		"prisma": "^4.10.1"
 	},
 	"engines": {
 		"node": ">=16.9.0"
