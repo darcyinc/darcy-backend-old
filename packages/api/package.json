@@ -7,8 +7,7 @@
 		"build": "tsup",
 		"lint": "prettier --check . && eslint src --ext .mjs,.js,.ts --format=pretty",
 		"format": "prettier --write . && eslint src --ext .mjs,.js,.ts --fix --format=pretty",
-		"fmt": "pnpm format",
-		"start": "node ."
+		"fmt": "pnpm format"
 	},
 	"contributors": [
 		"Davi Patricio <davipatricio2006@gmail.com>",

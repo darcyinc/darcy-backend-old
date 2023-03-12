@@ -9,6 +9,7 @@
     "format": "turbo run format",
     "generate": "turbo run generate",
     "migrate": "turbo run migrate",
+    "start": "turbo run start",
 		"create-package": "node packages/scripts/src/packageScript.mjs"
   },
   "contributors": [

@@ -1,9 +1,9 @@
+import { promisify } from 'node:util';
 import { User } from '@application/entities/user';
 import { randomBetween } from '@darcyinc/utils';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { promisify } from 'node:util';
 import { UserRepository } from '../repositories/user-repository.js';
 
 interface CreateUserRequest {

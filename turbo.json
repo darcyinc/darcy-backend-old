@@ -7,6 +7,11 @@
 			"inputs": ["../../tsconfig.json", "../../tsup.config.ts", "src/**/*.ts", "tsconfig.json", "tsup.config.ts"],
 			"outputs": ["dist/**"]
 		},
+		"start": {
+			"dependsOn": ["^build"],
+			"inputs": ["../../tsconfig.json", "../../tsup.config.ts", "src/**/*.ts", "tsconfig.json", "tsup.config.ts"],
+			"outputs": ["dist/**"]
+		},
 		"lint": {
 			"dependsOn": ["^build"],
 			"inputs": [
