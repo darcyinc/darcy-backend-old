@@ -1,0 +1,65 @@
+{
+	"$schema": "https://turborepo.org/schema.json",
+	"globalDependencies": ["pnpm-lock.yaml"],
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": ["../../tsconfig.json", "../../tsup.config.ts", "src/**/*.ts", "tsconfig.json", "tsup.config.ts"],
+			"outputs": ["dist/**"]
+		},
+		"start": {
+			"dependsOn": ["^build"],
+			"inputs": ["../../tsconfig.json", "../../tsup.config.ts", "src/**/*.ts", "tsconfig.json", "tsup.config.ts"],
+			"outputs": ["dist/**"]
+		},
+		"lint": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"../../.eslintrc.json",
+				"../../.prettierrc.json",
+				"../../tsconfig.json",
+				"../../tsconfig.eslint.json",
+				"src/**/*.ts",
+				".eslintrc.json",
+				".prettierignore",
+				".prettierrc.js",
+				".prettierrc.cjs",
+				".prettierrc.json",
+				"tsconfig.json",
+				"tsconfig.eslint.json",
+				"tsup.config.ts"
+			],
+			"outputs": []
+		},
+		"format": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"../../.eslintrc.json",
+				"../../.prettierrc.json",
+				"../../tsconfig.json",
+				"../../tsconfig.eslint.json",
+				"src/**/*.tsx",
+				"src/**/*.ts",
+				".eslintrc.json",
+				".prettierignore",
+				".prettierrc.js",
+				".prettierrc.cjs",
+				".prettierrc.json",
+				"tsconfig.json",
+				"tsconfig.eslint.json",
+				"tsup.config.ts"
+			],
+			"outputs": []
+		},
+		"generate": {
+			"dependsOn": ["^generate"],
+			"outputs": ["node_modules/.prisma/client/**"],
+			"cache": false
+		},
+		"migrate": {
+			"dependsOn": ["^generate"],
+			"outputs": ["node_modules/.prisma/client/**"],
+			"cache": false
+		}
+	}
+}
